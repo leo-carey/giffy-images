@@ -9,7 +9,7 @@
     ],
     "extends": [
         "standard",
-        "plugin:mocha/recommended",
+        "plugin:jest/recommended",
         "plugin:security/recommended"
     ],
     "parserOptions": {
