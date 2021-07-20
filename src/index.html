@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gif test</title>
+</head>
+<body>
+    <div id="img-playing">
+        <img width="150" src="https://starwars-visualguide.com/assets/img/characters/1.jpg" alt="Img 1">
+        <img style="display: none;" width="150" src="https://starwars-visualguide.com/assets/img/characters/2.jpg" alt="Img 2">
+        <img style="display: none;" width="150" src="https://starwars-visualguide.com/assets/img/characters/3.jpg" alt="Img 3">
+        <img style="display: none;" width="150" src="https://starwars-visualguide.com/assets/img/characters/4.jpg" alt="Img 4">
+        <img style="display: none;" width="150" src="https://starwars-visualguide.com/assets/img/characters/5.jpg" alt="Img 5">
+    </div>
+
+    <br>
+    <button style="display: block;" id="run-image">Play gif</button>
+
+    <script src="GiffyImages.js"></script>
+    <script>
+        const optionsGI = {
+            imageHolderId: 'img-playing',
+            timer: 100
+        }
+
+        const giffyImages = new GiffyImages(optionsGI)
+
+        document.getElementById('run-image').addEventListener('click', (e) => {
+            giffyImages.playStop()
+            e.preventDefault();
+            return false;
+        })
+    </script>
+</body>
+</html>
