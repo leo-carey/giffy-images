@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "A JavaScript plugin to turn many images into a gif.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx webpack serve",
+    "build": "webpack ENV=production"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
 }
