@@ -1,4 +1,4 @@
-name: GiffyImage Publish
+name: Publish
 
 on:
   release:
