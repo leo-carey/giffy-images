@@ -1,29 +1,16 @@
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common.js')
 const path = require('path')
 
-module.exports = {
-    mode: 'production',
-    devtool: 'source-map',
-    entry: './src/GiffyImages.js',
+module.exports = merge(common, {
+  mode: 'production',
+  devtool: 'source-map',
+  entry: './src/GiffyImages.js',
 
-    output: {
-        path: path.resolve(__dirname, '../dist'),
-        filename: 'giffy-images.min.js',
-        clean: true,
-        library: "GiffyImages"
-    },
-
-    module: {
-      rules: [
-        {
-          test: /\.m?js$/,
-          exclude: /(node_modules)/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        }
-      ]
-    }
-}
+  output: {
+      path: path.resolve(__dirname, '../dist'),
+      filename: 'giffy-images.min.js',
+      clean: true,
+      library: "GiffyImages"
+  }
+})

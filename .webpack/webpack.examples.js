@@ -1,7 +1,11 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common.js')
 const path = require('path')
 
-module.exports = {
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const config = require('../config')
+
+module.exports = merge(common, {
     mode: 'development',
     entry: './src/GiffyImages.js',
 
@@ -14,7 +18,11 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            templateParameters: {
+                title_lib: `${config.PROJECT_NAME} - Examples`,
+                src_env: '../dist/giffy-images.min.js'
+            }
         })
     ]
-}
+})

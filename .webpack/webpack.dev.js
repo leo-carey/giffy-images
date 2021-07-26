@@ -1,9 +1,11 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common.js')
 const path = require('path')
 
-console.log(process.env.PROJECT_NAME)
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const config = require('../config')
 
-module.exports = {
+module.exports = merge(common, {
     mode: 'development',
     entry: './src/GiffyImages.js',
 
@@ -11,26 +13,12 @@ module.exports = {
         library: "GiffyImages"
     },
 
-    module: {
-        rules: [
-            {
-            test: /\.m?js$/,
-            exclude: /(node_modules)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                presets: ['@babel/preset-env']
-                }
-            }
-            }
-        ]
-    },
-
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
             templateParameters: {
-                title_lib: process.env.PROJECT_NAME
+                title_lib: `${config.PROJECT_NAME} - Development`,
+                src_env: './GiffyImages.js'
             }
         })
     ],
@@ -39,5 +27,7 @@ module.exports = {
         contentBase: path.join(__dirname, '../src'),
         compress: false,
         port: 9000,
+        hot: true,
+        open: true
     }
-};
+})
