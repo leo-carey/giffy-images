@@ -8,7 +8,7 @@ import GiffyImages from '../src/GiffyImages'
 describe('Tests for GiffyImages lib', function () {
     it('Should create instance of GiffyImages', function () {
         const giffyImages = new GiffyImages({})
-        expect(giffyImages instanceof GiffyImages).toBe()
+        expect(giffyImages instanceof GiffyImages).toBe(true)
     })
 
     it.todo('Should check intervals')

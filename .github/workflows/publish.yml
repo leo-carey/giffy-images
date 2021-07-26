@@ -1,12 +1,15 @@
 name: Publish
 
-on:
-  release:
-    types: [created]
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  test:
+    name: Running unit tests
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -16,6 +19,7 @@ jobs:
       - run: npm test
 
   publish-npm:
+
     needs: build
     runs-on: ubuntu-latest
     steps:
