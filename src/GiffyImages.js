@@ -1,10 +1,10 @@
 'use strict'
 
 class GiffyImages {
-    constructor({ imageHolderId, timer = 50, autoplay = false }) {
+    constructor({ imageHolderId = 'giffy-images-container', timer = 50, autoplay = false }) {
         this.timer = timer
         this.autoplay = autoplay
-        this._images = document.getElementById(imageHolderId).children
+        this._images = document.getElementById(imageHolderId) ? document.getElementById(imageHolderId).children : null
 
         this.animate = null
         this.counter = 0
