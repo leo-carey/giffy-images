@@ -46,6 +46,8 @@ class GiffyImages {
             this.counter += 1;
         else
             this.counter = 0;
-
     }
 }
+
+
+module.exports = GiffyImages
