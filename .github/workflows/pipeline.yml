@@ -1,0 +1,13 @@
+name: GiffyImagesPublish
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+      - name: Run npm installation
+      - run: npm i
+      - name: Run builder to deploy and load examples
+      - run: npm run build
+      - run: npm publish --access public
