@@ -6,6 +6,19 @@ on:
       - main
 
 jobs:
+  build:
+    environment: production
+    name: Build project
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm build
+
   test:
     environment: production
     name: Running unit tests
@@ -20,6 +33,7 @@ jobs:
       - run: npm test
 
   publish-npm:
+    name: Publishing to npm
     environment: production
     needs: test
     runs-on: ubuntu-latest
