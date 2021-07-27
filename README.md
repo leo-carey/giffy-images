@@ -45,6 +45,15 @@ const optionsGI = {
 }
 
 const giffyImages = new GiffyImages(optionsGI)
+
+// Play
+giffyImages.play()
+
+// Stop
+giffyImages.stop()
+
+// Play and Stop
+giffyImages.playStop()
 ```
 
 <br>
