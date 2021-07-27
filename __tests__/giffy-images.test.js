@@ -30,4 +30,11 @@ describe('Tests for GiffyImages lib', function () {
 
         giffyImages.playStop()
     })
+
+    it('Should make anything if call stop() and start() is not called previously', function () {
+        const giffyImages = new GiffyImages({})
+        giffyImages.stop()
+
+        expect(giffyImages.isPlaying).toBe(false)
+    })
 })
