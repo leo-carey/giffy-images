@@ -1,14 +1,14 @@
 'use strict'
 
 class GiffyImages {
-    constructor({ imageHolderId = 'giffy-images-container', timer = 50, autoplay = false }) {
-        this.timer = timer
+    constructor({ imageHolderId = 'giffy-images-container', speed = 50, autoplay = false }) {
+        this.speed = speed
         this.autoplay = autoplay
         this._images = document.getElementById(imageHolderId) ? document.getElementById(imageHolderId).children : null
 
         this.animate = null
-        this.counter = 0
-        this.isPlaying = 0
+        this.currentImage = 0
+        this.isPlaying = false
 
         if(this.autoplay) {
             this.playStop()
@@ -16,17 +16,17 @@ class GiffyImages {
     }
 
     play() {
-        this.isPlaying = 1;
-		this.animate = setInterval(this.#_playAnimation.bind(this), this.timer);
+        this.isPlaying = true;
+		this.animate = setInterval(this.#_playAnimation.bind(this), this.speed);
     }
 
     stop() {
-        this.isPlaying = 0;
+        this.isPlaying = false;
         clearInterval(this.animate);
     }
 
     playStop () {
-        if (this.isPlaying == 1) {
+        if (this.isPlaying) {
 			this.stop()
 		} else {
 			this.play()
@@ -34,18 +34,20 @@ class GiffyImages {
     }
 
     #_playAnimation() {
-        if (this.counter === 0) {
+        if (!this._images) return;
+
+        if (this.currentImage === 0) {
             this._images[0].style.display = 'block'
             this._images[this._images.length - 1].style.display = 'none'
         } else {
-            this._images[this.counter - 1].style.display = 'none'
-            this._images[this.counter].style.display = 'block'
+            this._images[this.currentImage - 1].style.display = 'none'
+            this._images[this.currentImage].style.display = 'block'
         }
 
-        if (this.counter !== this._images.length - 1)
-            this.counter += 1;
+        if (this.currentImage !== this._images.length - 1)
+            this.currentImage += 1;
         else
-            this.counter = 0;
+            this.currentImage = 0;
     }
 }
 

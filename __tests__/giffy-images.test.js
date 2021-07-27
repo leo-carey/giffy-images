@@ -11,8 +11,23 @@ describe('Tests for GiffyImages lib', function () {
         expect(giffyImages instanceof GiffyImages).toBe(true)
     })
 
-    it.todo('Should check intervals')
-    it.todo('Should check play gif')
-    it.todo('Should check stop gif')
-    it.todo('Should check playStop')
+    it('Should check play gif and stop it after', function () {
+        const giffyImages = new GiffyImages({})
+        giffyImages.play()
+
+        expect(giffyImages.isPlaying).toBe(true)
+
+        giffyImages.stop()
+
+        expect(giffyImages.isPlaying).toBe(false)
+    })
+
+    it('Should check playStop if play and stop', function () {
+        const giffyImages = new GiffyImages({})
+        giffyImages.playStop()
+
+        expect(giffyImages.isPlaying).toBe(true)
+
+        giffyImages.playStop()
+    })
 })

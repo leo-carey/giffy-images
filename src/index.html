@@ -7,7 +7,7 @@
     <title><%= title_lib %></title>
 </head>
 <body>
-    <div id="img-playing">
+    <div id="giffy-images-container">
         <img width="150" src="https://starwars-visualguide.com/assets/img/characters/1.jpg" alt="Img 1">
         <img style="display: none;" width="150" src="https://starwars-visualguide.com/assets/img/characters/2.jpg" alt="Img 2">
         <img style="display: none;" width="150" src="https://starwars-visualguide.com/assets/img/characters/3.jpg" alt="Img 3">
@@ -21,8 +21,8 @@
     <script src="<%= src_env %>"></script>
     <script>
         const optionsGI = {
-            imageHolderId: 'img-playing',
-            timer: 100
+            imageHolderId: 'giffy-images-container',
+            speed: 100
         }
 
         const giffyImages = new GiffyImages(optionsGI)
