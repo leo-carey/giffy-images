@@ -7,6 +7,7 @@ on:
 
 jobs:
   test:
+    environment: production
     name: Running unit tests
     runs-on: ubuntu-latest
 
@@ -19,6 +20,7 @@ jobs:
       - run: npm test
 
   publish-npm:
+    environment: production
     needs: test
     runs-on: ubuntu-latest
 
