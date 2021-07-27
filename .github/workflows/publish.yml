@@ -22,6 +22,7 @@ jobs:
   test:
     environment: production
     name: Running unit tests
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
