@@ -1,7 +1,15 @@
 {
   "name": "giffy-images",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A JavaScript plugin to turn many images into a gif.",
+  "keywords": [
+    "gif",
+    "html",
+    "js",
+    "gif generator",
+    "images to gif",
+    "gamefy"
+  ],
   "scripts": {
     "test": "npx jest",
     "dev": "npx webpack serve --config ./.webpack/webpack.dev.js",
