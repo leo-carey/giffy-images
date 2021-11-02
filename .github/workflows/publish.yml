@@ -36,7 +36,6 @@ jobs:
   publish-npm:
     name: Publishing to npm
     environment: production
-    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -46,6 +45,13 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish
+      - run: npm run build
+      - name: "Automated Version Bump"
+        uses: "phips28/gh-action-bump-version@master"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target-branch: "main"
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

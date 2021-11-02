@@ -1,9 +1,3 @@
-# GiffyImages
-
-[![Publish](https://github.com/leoncarey/giffy-images/actions/workflows/publish.yml/badge.svg)](https://github.com/leoncarey/giffy-images/actions/workflows/publish.yml)
-
-A JavaScript plugin to turn many elements images into a gif magically.
-
 ## Preview
 
 ![Gif preview](https://github.com/leoncarey/giffy-images/blob/main/docs/preview.gif?raw=true)
