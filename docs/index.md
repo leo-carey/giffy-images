@@ -1,4 +1,4 @@
-## Preview
+## Giffy Images
 
 ![Gif preview](https://github.com/leoncarey/giffy-images/blob/main/docs/preview.gif?raw=true)
 
